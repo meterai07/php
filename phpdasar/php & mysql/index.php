@@ -20,23 +20,37 @@ if (isset($_POST["cari"])) {
 <html lang="en">
 
 <head>
-    <!-- test -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            gap: 10px;
+        }
+
+        body {
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Daftar Mahasiswa</h1>
     <header>
-        <a href="functions/tambah.php"><button type="submit" name="submit">Tambah Data Mahasiswa</button></a>
         <form action="" method="post">
             <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
             <button type="submit" name="cari">Cari!</button>
         </form>
+        <a href="functions/tambah.php"><button type="submit" name="submit">Tambah Data Mahasiswa</button></a>
+        
     </header>
     <table class="table">
         <thead>
