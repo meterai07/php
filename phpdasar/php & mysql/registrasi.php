@@ -23,6 +23,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+                * {
+            margin: 0;
+            padding: 0;
+        }
+         
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 350px;
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+
+        form input {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <h1>Halaman Registrasi</h1>

@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    
+    if (isset($_SESSION["login"])) {
+        header("Location: index.php");
+        exit;
+    }
+    
     require 'functions/functions.php';
 
     if (isset($_POST["login"])) {
@@ -64,17 +71,21 @@
             border: 1px solid #CCC;
             border-radius: 1em;
         }
+
+        form input {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <h1>Halaman Login</h1>
     <form action="" method="post">
             <div class="mb-3">
-                <label for="username">Username : </label>
+                <label for="username">Username </label>
                 <input type="text" name="username" id="username">
             </div>
             <div class="mb-3">
-                <label for="password">Password : </label>
+                <label for="password">Password </label>
                 <input type="password" name="password" id="password">
             </div>
             <button type="submit" name="login" class="btn btn-primary">Login!</button>
