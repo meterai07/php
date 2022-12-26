@@ -5,7 +5,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
 if (isset($_POST["cari"])) {
     $tempQuery = cari($_POST["keyword"]);
 
-    if ($query == null) {
+    if ($tempQuery == null) {
         echo "<script>
                 alert('Data tidak ditemukan!');
                 document.location.href = 'index.php';
@@ -31,14 +31,36 @@ if (isset($_POST["cari"])) {
             padding: 0;
         }
 
+        body {
+            margin: 20px;
+        }
+
         header {
             display: flex;
             gap: 10px;
         }
 
-        body {
-            margin: 20px;
+        header form,
+        header a {
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px black;
+            padding: 10px;
         }
+
+        header input {
+            border: none;
+        }
+
+        header input:focus {
+            outline: none;
+        }
+
+        header button {
+            border: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
