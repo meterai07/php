@@ -5,7 +5,7 @@ if (delete($_GET["NIM"]) === 1) {
     echo "
         <script>
             alert('Data Berhasil Dihapus');
-            document.location.href = 'index.php';
+            document.location.href = '../index.php';
         </script>
         ";
 }

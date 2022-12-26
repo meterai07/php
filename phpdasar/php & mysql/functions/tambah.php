@@ -5,7 +5,7 @@ if (isset($_POST["submit"])) {
         echo "
         <script>
             alert('Data Berhasil Ditambahkan');
-            document.location.href = 'index.php';
+            document.location.href = '../index.php';
         </script>
         ";
     }
