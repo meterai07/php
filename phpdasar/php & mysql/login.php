@@ -74,7 +74,13 @@
             margin: 0;
             padding: 0;
         }
-         
+
+        .container {
+            margin : 100px auto;
+            justify-content: center;
+            align-items: center;
+        }
+
         h1 {
             text-align: center;
             margin: 20px;
@@ -101,26 +107,28 @@
     </style>
 </head>
 <body>
-    <h1>Halaman Login</h1> 
-    <form action="" method="post">
-            <div class="mb-3">
-                <label for="username">Username </label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="mb-3">
-                <label for="password">Password </label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="remember">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember me 
-                </label>
-            </div>
-            <button type="submit" name="login" class="btn btn-primary">Login!</button>
-            <div class="text-center">
-                <p>Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
-            </div>
-    </form>
+    <div class="container">
+        <h1>Halaman Login</h1> 
+        <form action="" method="post">
+                <div class="mb-3">
+                    <label for="username">Username </label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password </label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="remember">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Remember me 
+                    </label>
+                </div>
+                <button type="submit" name="login" class="btn btn-primary">Login!</button>
+                <div class="text-center">
+                    <p>Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
+                </div>
+        </form>
+    </div>
 </body>
 </html>    

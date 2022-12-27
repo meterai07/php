@@ -29,6 +29,12 @@
             padding: 0;
         }
          
+        .container {
+            margin : 100px auto;
+            justify-content: center;
+            align-items: center;
+        }
+
         h1 {
             text-align: center;
             margin: 20px;
@@ -50,21 +56,23 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <h1>Halaman Registrasi</h1>
-    <form action="" method="post">
-            <div class="mb-3">
-                <label for="username">Username : </label>
-                <input type="text" name="username" id="username">
-            </div>
-            <div class="mb-3">
-                <label for="password">Password : </label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="mb-3">
-                <label for="password2">Konfirmasi Password : </label>
-                <input type="password" name="password2" id="password2">
-            </div>
-            <button type="submit" name="register" class="btn btn-primary">Register!</button>
-    </form>
+        <form action="" method="post">
+                <div class="mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="mb-3">
+                    <label for="password2">Konfirmasi Password</label>
+                    <input type="password" name="password2" id="password2">
+                </div>
+                <button type="submit" name="register" class="btn btn-primary">Register!</button>
+        </form>
+    </div>
 </body>
 </html>
