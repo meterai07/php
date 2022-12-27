@@ -51,11 +51,12 @@ if (isset($_POST["cari"])) {
             text-decoration: none;
             border-radius: 5px;
             box-shadow: 0 0 5px black;
-            padding: 10px;
         }
 
         header input {
             border: none;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         header input:focus {
@@ -65,6 +66,22 @@ if (isset($_POST["cari"])) {
         header button {
             border: none;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        header button:hover {
+            transition: 0.5s;
+        }
+
+        header button.add:hover {
+            background-color: green;
+            color: white;
+        }
+
+        header button.logout:hover {
+            background-color: red;
+            color: white;
         }
 
     </style>
@@ -77,8 +94,8 @@ if (isset($_POST["cari"])) {
             <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
             <button type="submit" name="cari">Cari!</button>
         </form>
-        <a href="functions/tambah.php"><button type="submit" name="submit">Tambah Data Mahasiswa</button></a>
-        <a href="logout.php"><button type="submit" name="submit">Logout</button></a>
+        <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
+        <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
     </header>
     <table class="table">
         <thead>

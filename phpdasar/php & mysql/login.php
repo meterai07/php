@@ -1,12 +1,23 @@
 <?php
     session_start();
-    
+    require 'functions/functions.php';
+
+    if (isset($_COOKIE["id"]) && isset($_COOKIE["key"])) {
+        $id = $_COOKIE["id"];
+        $key = $_COOKIE["key"];
+
+        $result = mysqli_query($conn, "SELECT username FROM user WHERE id = $id");
+        $row = mysqli_fetch_assoc($result);
+
+        if ($key === hash("sha256", $row["username"])) {
+            $_SESSION["login"] = true;
+        }
+    }
+
     if (isset($_SESSION["login"])) {
         header("Location: index.php");
         exit;
     }
-    
-    require 'functions/functions.php';
 
     if (isset($_POST["login"])) {
         $username = $_POST["username"];
@@ -21,7 +32,14 @@
             if (password_verify($password, $row["password"])) {
                 // set session
                 $_SESSION["login"] = true;
-            echo "
+
+                if (isset($_POST["remember"])) {
+                    // buat cookie
+                    setcookie("id", $row["id"], time() + 60);
+                    setcookie("key", hash("sha256", $row["username"]), time() + 60);
+                }
+                
+                echo "
                     <script>
                         alert('Login Berhasil');
                         document.location.href = 'index.php';
@@ -75,10 +93,15 @@
         form input {
             width: 100%;
         }
+
+        .text-center {
+            margin : 20px 0 0 0;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Halaman Login</h1>
+    <h1>Halaman Login</h1> 
     <form action="" method="post">
             <div class="mb-3">
                 <label for="username">Username </label>
@@ -88,7 +111,16 @@
                 <label for="password">Password </label>
                 <input type="password" name="password" id="password">
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="remember">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Remember me 
+                </label>
+            </div>
             <button type="submit" name="login" class="btn btn-primary">Login!</button>
+            <div class="text-center">
+                <p>Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
+            </div>
     </form>
 </body>
 </html>    
