@@ -53,6 +53,10 @@
         form input {
             width: 100%;
         }
+
+        .text-center {
+            margin : 20px 0 0 0;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +76,9 @@
                     <input type="password" name="password2" id="password2">
                 </div>
                 <button type="submit" name="register" class="btn btn-primary">Register!</button>
+                <div class="text-center">
+                    <p>Sudah punya akun? Login <a href="login.php">Disini</a></p>
+                </div>           
         </form>
     </div>
 </body>
