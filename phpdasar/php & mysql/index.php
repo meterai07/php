@@ -68,6 +68,7 @@ if (isset($_POST["cari"])) {
             cursor: pointer;
             padding: 10px;
             border-radius: 5px;
+            background-color: white;
         }
 
         header button:hover {
