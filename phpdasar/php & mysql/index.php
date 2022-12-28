@@ -6,7 +6,16 @@ if (!isset($_SESSION["login"])) {
 }
 
 require 'functions/functions.php';
-$mahasiswa = query("SELECT * FROM mahasiswa");
+
+// pagination
+$limitMahasiswa = 5;
+$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+$totalData = mysqli_num_rows($result);
+$totalHalaman = ceil($totalData / $limitMahasiswa);
+$halamanAktif = (isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+$awalData = ($limitMahasiswa * $halamanAktif) - $limitMahasiswa;
+
+$mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $limitMahasiswa");
 
 if (isset($_POST["cari"])) {
     $tempQuery = cari($_POST["keyword"]);
@@ -98,35 +107,55 @@ if (isset($_POST["cari"])) {
         <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
         <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
     </header>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">No.</th>
-                <th scope="col">Aksi</th>
-                <th scope="col">NIM</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jurusan</th>
-                <th scope="col">Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $i = 1 ?>
-            <?php foreach ($mahasiswa as $mhs) : ?>
+    <br>
+    <!-- navigasi -->
+    <?php if ($halamanAktif > 1) : ?>
+        <a href="?halaman=<?= $halamanAktif - 1 ?>" style="text-decoration: none;">&laquo;</a>
+    <?php endif ?>
+
+    <?php for ($i = 1; $i <= $totalHalaman; $i++) : ?>
+        <?php if ($i == $halamanAktif) : ?>
+            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: red; text-decoration: none;"><?= $i ?></a>
+        <?php else : ?>
+            <a href="?halaman=<?= $i ?>" style="text-decoration: none;"><?= $i ?></a>
+        <?php endif ?>
+    <?php endfor ?>
+
+    <?php if ($halamanAktif < $totalHalaman) : ?>
+        <a href="?halaman=<?= $halamanAktif + 1 ?>" style="text-decoration: none;">&raquo;</a>
+    <?php endif ?>
+
+    <main>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td scope="row"><?= $i ?></td>
-                    <td>
-                        <a href="functions/ubah.php?NIM=<?= $mhs["NIM"] ?>">ubah</a> |
-                        <a href="functions/hapus.php?NIM=<?= $mhs["NIM"] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">hapus</a>
-                    </td>
-                    <td><?= $mhs["NIM"] ?></td>
-                    <td><?= $mhs["Nama"] ?></td>
-                    <td><?= $mhs["Jurusan"] ?></td>
-                    <td><?= $mhs["Email"] ?></td>
-                    <?php $i++ ?>
+                    <th scope="col">No.</th>
+                    <th scope="col">Aksi</th>
+                    <th scope="col">NIM</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Jurusan</th>
+                    <th scope="col">Email</th>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php $i = 1 ?>
+                <?php foreach ($mahasiswa as $mhs) : ?>
+                    <tr>
+                        <td scope="row"><?= $i ?></td>
+                        <td>
+                            <a href="functions/ubah.php?NIM=<?= $mhs["NIM"] ?>">ubah</a> |
+                            <a href="functions/hapus.php?NIM=<?= $mhs["NIM"] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">hapus</a>
+                        </td>
+                        <td><?= $mhs["NIM"] ?></td>
+                        <td><?= $mhs["Nama"] ?></td>
+                        <td><?= $mhs["Jurusan"] ?></td>
+                        <td><?= $mhs["Email"] ?></td>
+                        <?php $i++ ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
