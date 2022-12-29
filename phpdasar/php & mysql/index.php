@@ -101,8 +101,8 @@ if (isset($_POST["cari"])) {
     <h1>Daftar Mahasiswa</h1>
     <header>
         <form action="" method="post">
-            <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
-            <button type="submit" name="cari">Cari!</button>
+            <input id="keyword" type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
+            <button id="search-button" type="submit" name="cari">Cari!</button>
         </form>
         <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
         <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
@@ -126,7 +126,7 @@ if (isset($_POST["cari"])) {
     <?php endif ?>
 
     <main>
-        <table class="table">
+        <table class="table" id="table">
             <thead>
                 <tr>
                     <th scope="col">No.</th>
@@ -158,5 +158,5 @@ if (isset($_POST["cari"])) {
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-
+<script src="js/script.js"></script>
 </html>
