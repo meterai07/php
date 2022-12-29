@@ -115,7 +115,7 @@ if (isset($_POST["cari"])) {
 
     <?php for ($i = 1; $i <= $totalHalaman; $i++) : ?>
         <?php if ($i == $halamanAktif) : ?>
-            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: red; text-decoration: none;"><?= $i ?></a>
+            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: green; text-decoration: none;"><?= $i ?></a>
         <?php else : ?>
             <a href="?halaman=<?= $i ?>" style="text-decoration: none;"><?= $i ?></a>
         <?php endif ?>
