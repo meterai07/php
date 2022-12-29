@@ -92,8 +92,10 @@ if (isset($_POST["submit"])) {
                 <label for="Email" class="form-label">Email</label>
                 <input type="email" class="form-text" id="Email" name="Email" value="<?= $mahasiswa["Email"] ?>">
             </div>
-            <button class="btn btn-primary" onclick="window.history.go(-1); return false;">Kembali</button>
-            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            <div class="action-button">
+                <button class="btn btn-primary" onclick="window.history.go(-1); return false;">Kembali</button>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </div>
         </form>
     </div>
 </body>
