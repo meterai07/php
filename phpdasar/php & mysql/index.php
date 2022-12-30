@@ -94,6 +94,11 @@ if (isset($_POST["cari"])) {
             color: white;
         }
 
+        table.table {
+            width: 90%;
+            table-layout: fixed;
+        }
+
     </style>
 </head>
 
@@ -108,24 +113,24 @@ if (isset($_POST["cari"])) {
         <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
     </header>
     <br>
-    <!-- navigasi -->
-    <?php if ($halamanAktif > 1) : ?>
-        <a href="?halaman=<?= $halamanAktif - 1 ?>" style="text-decoration: none;">&laquo;</a>
-    <?php endif ?>
-
-    <?php for ($i = 1; $i <= $totalHalaman; $i++) : ?>
-        <?php if ($i == $halamanAktif) : ?>
-            <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: green; text-decoration: none;"><?= $i ?></a>
-        <?php else : ?>
-            <a href="?halaman=<?= $i ?>" style="text-decoration: none;"><?= $i ?></a>
-        <?php endif ?>
-    <?php endfor ?>
-
-    <?php if ($halamanAktif < $totalHalaman) : ?>
-        <a href="?halaman=<?= $halamanAktif + 1 ?>" style="text-decoration: none;">&raquo;</a>
-    <?php endif ?>
-
+    
     <main>
+        <!-- navigasi -->
+        <?php if ($halamanAktif > 1) : ?>
+            <a href="?halaman=<?= $halamanAktif - 1 ?>" style="text-decoration: none;">&laquo;</a>
+        <?php endif ?>
+    
+        <?php for ($i = 1; $i <= $totalHalaman; $i++) : ?>
+            <?php if ($i == $halamanAktif) : ?>
+                <a href="?halaman=<?= $i ?>" style="font-weight: bold; color: green; text-decoration: none;"><?= $i ?></a>
+            <?php else : ?>
+                <a href="?halaman=<?= $i ?>" style="text-decoration: none;"><?= $i ?></a>
+            <?php endif ?>
+        <?php endfor ?>
+    
+        <?php if ($halamanAktif < $totalHalaman) : ?>
+            <a href="?halaman=<?= $halamanAktif + 1 ?>" style="text-decoration: none;">&raquo;</a>
+        <?php endif ?>
         <table class="table" id="table">
             <thead>
                 <tr>
