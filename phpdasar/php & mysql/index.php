@@ -62,6 +62,17 @@ if (isset($_POST["cari"])) {
             box-shadow: 0 0 5px black;
         }
 
+        header form {
+            display: flex;
+            width: 400px;
+        }
+
+        header form img {
+            width: 50px;
+            height: 40px;
+            display: none;
+        }
+
         header input {
             border: none;
             padding: 10px;
@@ -107,6 +118,7 @@ if (isset($_POST["cari"])) {
     <header>
         <form action="" method="post">
             <input id="keyword" type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
+            <img src="img/Loading_icon.gif" alt="" id="loading">
             <button id="search-button" type="submit" name="cari">Cari!</button>
         </form>
         <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
@@ -165,13 +177,4 @@ if (isset($_POST["cari"])) {
 <script src="js/jquery-3.6.3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
-<script>
-    // $(document).ready(function () {
-    //     $("#search-button").hide();
-
-    //     $("#keyword").on("keyup", function () {
-    //         $("#table").load("ajax/mahasiswa.php?keyword=" + $("#keyword").val());
-    //     });
-    // }); 
-</script>
 </html>
