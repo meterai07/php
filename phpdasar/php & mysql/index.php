@@ -51,6 +51,7 @@ if (isset($_POST["cari"])) {
         }
 
         header {
+            height: auto;
             display: flex;
             gap: 10px;
         }
@@ -100,6 +101,11 @@ if (isset($_POST["cari"])) {
             color: white;
         }
 
+        header button.print:hover {
+            background-color: lightblue;
+            color: white;
+        }
+
         header button.logout:hover {
             background-color: red;
             color: white;
@@ -109,6 +115,13 @@ if (isset($_POST["cari"])) {
             width: 90%;
             table-layout: fixed;
         }
+
+        /* menggunakan css media query untuk menghilangkan tombol logout ketika print */
+        /* @media print {
+            .logout {
+                display: none;
+            }
+        } */
 
     </style>
 </head>
@@ -122,6 +135,7 @@ if (isset($_POST["cari"])) {
             <button id="search-button" type="submit" name="cari">Cari!</button>
         </form>
         <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
+        <a href="functions/print.php"><button type="submit" name="submit" class="print">Print</button></a>
         <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
     </header>
     <br>
