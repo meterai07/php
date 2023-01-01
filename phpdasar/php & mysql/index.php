@@ -135,7 +135,7 @@ if (isset($_POST["cari"])) {
             <button id="search-button" type="submit" name="cari">Cari!</button>
         </form>
         <a href="functions/tambah.php"><button type="submit" name="submit" class="add">Tambah Data Mahasiswa</button></a>
-        <a href="functions/print.php"><button type="submit" name="submit" class="print">Print</button></a>
+        <a href="print.php"><button type="submit" name="submit" class="print">Print</button></a>
         <a href="logout.php"><button type="submit" name="submit" class="logout">Logout</button></a>
     </header>
     <br>
