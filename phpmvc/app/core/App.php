@@ -1,9 +1,39 @@
 <?php 
     class App {
+        protected $controller = 'Home';
+        protected $method = 'index';
+        protected $params = [];
         public function __construct()
         {
             $url = $this->parseUrl();
-            var_dump($url);
+            
+            // check if array offset on value type of null
+            if (isset($url[0])) {
+                // Check if the controller exists
+                if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+                    $this->controller = $url[0];
+                    unset($url[0]);
+                }
+            }
+
+            // Require the controller
+            require_once '../app/controllers/' . $this->controller . '.php';
+            $this->controller = new $this->controller;
+
+            // Check for the method
+            if (isset($url[1])){
+                if (method_exists($this->controller, $url[1])){
+                    $this->method = $url[1];
+                    unset($url[1]);
+                }
+            }
+
+            if (isset($url)){
+                $this->params = array_values($url);
+            }
+
+            // Call a callback with array of params
+            call_user_func_array([$this->controller, $this->method], $this->params);
         }
 
         public function parseUrl()
