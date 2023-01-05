@@ -14,5 +14,12 @@ class Mahasiswa_model
         $this->db->query("SELECT * FROM " . $this->table);
         return $this->db->resultSet();
     }
+
+    public function getMahasiswaByNIM($nim)
+    {
+        $this->db->query("SELECT * FROM " . $this->table . " WHERE nim = :nim");
+        $this->db->bind('nim', $nim);
+        return $this->db->single();
+    }
 }
 ?>

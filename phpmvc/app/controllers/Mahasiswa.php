@@ -7,5 +7,13 @@
             $this->view('mahasiswa/index', $data);
             $this->view('templates/footer');
         }
+
+        public function detail ($nim)
+        {
+            $data['mhs'] = $this->model('Mahasiswa_model')->getMahasiswaByNIM($nim);
+            $this->view('templates/header', ['judul' => 'Detail Mahasiswa']);
+            $this->view('mahasiswa/detail', $data);
+            $this->view('templates/footer');
+        }
     }
 ?>
