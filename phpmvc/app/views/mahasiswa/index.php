@@ -27,7 +27,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= BASEURL ?>/mahasiwa/tambah" method="post">
+        <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
           <div class="mb-3">
             <label for="nim" class="form-label">NIM</label>
             <input type="number" class="form-control" id="nim" name="nim">
@@ -51,12 +51,12 @@
             </select>
           </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah Data</button>
-        </div>
-      </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Tambah Data</button>
+          </div>
+        </form>
     </div>
   </div>
 </div>
