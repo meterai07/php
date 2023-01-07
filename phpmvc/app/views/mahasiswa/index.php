@@ -15,9 +15,40 @@
       <h1>Data Mahasiswa</h1>
       <ul class="list-group">
             <?php foreach ($data['mhs'] as $mhs) : ?>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item">
                 <?= $mhs['Nama'] ?>
-                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['NIM'] ?>" class="badge text-bg-primary">details</a>
+                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['NIM'] ?>" class="badge text-bg-danger float-end ms-1" onclick=" return confirm('yakin?');
+                //   swal({
+                //     title: 'Are you sure?',
+                //     text: 'You will not be able to recover this data!',
+                //     icon: 'warning',
+                //     buttons: {
+                //       cancel: {
+                //         text: 'No, keep it',
+                //         value: null,
+                //         visible: true,
+                //         className: '',
+                //         closeModal: false,
+                //       },
+                //       confirm: {
+                //         text: 'Yes, delete it!',
+                //         value: true,
+                //         visible: true,
+                //         className: '',
+                //         closeModal: false
+                //       }
+                //     }
+                //   }).then((value) => {
+                //     if (value) {
+                //       // add code here to delete the data
+                //       swal('Deleted!', 'Your data has been deleted.', 'success');
+                //     } else {
+                //       swal('Cancelled', 'Your data is safe', 'error');
+                //     }
+                //   });
+                // ">delete</a>
+
+                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['NIM'] ?>" class="badge text-bg-primary float-end ms-1">details</a>
               </li>
             <?php endforeach; ?>
       </ul>

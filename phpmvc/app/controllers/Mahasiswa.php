@@ -28,5 +28,18 @@
                 exit;
             }
         }
+
+        public function hapus ($nim)
+        {
+            if ($this->model('Mahasiswa_model')->hapusDataMahasiswa($nim) > 0) {
+                Flasher::setFlash('berhasil', 'dihapus', 'success');
+                header('Location: ' . BASEURL . '/mahasiswa');
+                exit;
+            } else {
+                Flasher::setFlash('gagal', 'dihapus', 'danger');
+                header('Location: ' . BASEURL . '/mahasiswa');
+                exit;
+            }
+        }
     }
 ?>
