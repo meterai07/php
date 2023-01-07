@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-6">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#formModal">
+      <button type="button" class="btn btn-primary mb-4 tambahDataMahasiswa" data-bs-toggle="modal" data-bs-target="#formModal">
         Tambah Data Mahasiswa
       </button>
       <h1>Data Mahasiswa</h1>
@@ -48,7 +48,7 @@
                 //   });
                 // ">delete</a>
 
-                <a href="<?= BASEURL; ?>/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="badge text-bg-info float-end ms-1 text-decoration-none ubahDataMahasiswa" data-bs-toggle="modal" data-bs-target="#formModal">edit</a>
+                <a href="<?= BASEURL; ?>/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="badge text-bg-info float-end ms-1 text-decoration-none ubahDataMahasiswa" data-bs-toggle="modal" data-bs-target="#formModal" data-nim="<?= $mhs['NIM'] ?>">edit</a>
                 <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['NIM'] ?>" class="badge text-bg-primary float-end ms-1 text-decoration-none">details</a>
               </li>
             <?php endforeach; ?>
@@ -58,11 +58,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="judulModal">Tambah Data Mahasiswa</h1>
+        <h1 class="modal-title fs-5" id="formModalLabel">Tambah Data Mahasiswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
