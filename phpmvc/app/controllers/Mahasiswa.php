@@ -41,5 +41,10 @@
                 exit;
             }
         }
+
+        // public function getUbah ()
+        // {
+        //     echo json_encode($this->model('Mahasiswa_model')->getMahasiswaByNIM($_POST['nim']));
+        // }
     }
 ?>

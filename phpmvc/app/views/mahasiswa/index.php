@@ -17,7 +17,7 @@
             <?php foreach ($data['mhs'] as $mhs) : ?>
               <li class="list-group-item">
                 <?= $mhs['Nama'] ?>
-                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['NIM'] ?>" class="badge text-bg-danger float-end ms-1" onclick=" return confirm('yakin?');
+                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['NIM'] ?>" class="badge text-bg-danger float-end ms-1 text-decoration-none" onclick=" return confirm('yakin?');
                 //   swal({
                 //     title: 'Are you sure?',
                 //     text: 'You will not be able to recover this data!',
@@ -48,7 +48,8 @@
                 //   });
                 // ">delete</a>
 
-                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['NIM'] ?>" class="badge text-bg-primary float-end ms-1">details</a>
+                <a href="<?= BASEURL; ?>/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="badge text-bg-info float-end ms-1 text-decoration-none ubahDataMahasiswa" data-bs-toggle="modal" data-bs-target="#formModal">edit</a>
+                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['NIM'] ?>" class="badge text-bg-primary float-end ms-1 text-decoration-none">details</a>
               </li>
             <?php endforeach; ?>
       </ul>
