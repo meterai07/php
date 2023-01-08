@@ -87,6 +87,7 @@
               <option value="Teknik Informatika">Teknik Informatika</option>
               <option value="Sistem Informasi">Sistem Informasi</option>
               <option value="Teknik Komputer">Teknik Komputer</option>
+              <option value="Teknik Komputer">Teknik Biomedis</option>
             </select>
           </div>
 
