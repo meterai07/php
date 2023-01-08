@@ -59,5 +59,13 @@
                 exit;
             }
         }
+
+        public function cari ()
+        {
+            $data['mhs'] = $this->model('Mahasiswa_model')->cariDataMahasiswa();
+            $this->view('templates/header', ['judul' => 'Daftar Mahasiswa']);
+            $this->view('mahasiswa/index', $data);
+            $this->view('templates/footer');
+        }
     }
 ?>
